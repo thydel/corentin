@@ -16,10 +16,11 @@ host := $$(shuf -n 1 -e $(hosts))
 
 fib := fib () { echo "define fib (n) { if (n <= 2) return 1; return fib(n - 1) + fib(n - 2) }; fib($${1:?})" | bc -ql; }
 
-$(tmp)/%: | $(tmp); @ echo -n $* ""; $(fib); { declare -f fib; echo fib $*; } | ssh $(host).admin2 bash > $@; echo -n $$(cat $@) ""
+$(tmp)/%: | $(tmp); @ echo -n $* ""; $(fib); { declare -f fib; echo fib $*; } | ssh $(host).admin2 bash > $@
 $(tmp):; mkdir $@
 
-fibs != seq 33
-main: phony $(fibs:%=$(tmp)/%)
+nfibs ?= 33
+fibs != seq -w $(nfibs)
+main: phony $(fibs:%=$(tmp)/%); @ echo; echo -n $$(cat $(tmp)/*)
 
 clean: phony; rm -r $(tmp)
