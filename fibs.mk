@@ -12,7 +12,7 @@ SHELL != which bash
 tmp := tmp/fib
 
 hosts := tst2 tst4 tst5 tst6 tst8
-host = $(word $(shell echo $$(($$RANDOM % $(words $(hosts)) + 1))), $(hosts))
+host := $$(shuf -n 1 -e $(hosts))
 
 fib := fib () { echo "define fib (n) { if (n <= 2) return 1; return fib(n - 1) + fib(n - 2) }; fib($${1:?})" | bc -ql; }
 
