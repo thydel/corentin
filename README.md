@@ -11,7 +11,7 @@
 
 # What's new
 
-- The [fibs-rr.mk][] variant, now with round-robin locked allocation
+- The [[fibs-rr.mk](fibs-rr.mk) variant, now with round-robin locked allocation
 - Generated 99 random invocation of fib (max 33) on my 5 test nodes
 - Use `outupt-sync` make option
 - Display sequence of task, time of run, name of node, arg of fib and result
@@ -19,8 +19,6 @@
 A priori
   - If the number of processe (`-j`) is less than the number of nodes no nodes will run more than a task at a time
   - If the number of processe (`-j`) is more than the number of nodes all nodes may run more than a task at a time
-
-[fibs-rr.mk](fibs-rr.mk)
 
 ## Sequentially on all nodes
 
@@ -242,9 +240,7 @@ sys	0m1.938s
 
 # The simpler version
 
-[fibs.mk][] Dispatch task on nodes with make
-
-[fibs.mk](fibs.mk)
+[fibs.mk](fibs.mk) Dispatch task on nodes with make
 
 ## Test on a handful test VM
 
