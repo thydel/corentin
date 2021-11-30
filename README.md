@@ -11,7 +11,7 @@
 
 # What's new
 
-- The [[fibs-rr.mk](fibs-rr.mk) variant, now with round-robin locked allocation
+- The [fibs-rr.mk](fibs-rr.mk) variant, now with round-robin locked allocation
 - Generated 99 random invocation of fib (max 33) on my 5 test nodes
 - Use `outupt-sync` make option
 - Display sequence of task, time of run, name of node, arg of fib and result
