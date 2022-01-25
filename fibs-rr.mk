@@ -57,7 +57,7 @@ stone: phony | $(tmp); @ touch $(stone)
 $~: $~ := $(self) clean;
 $~: $~ += time $(self);
 $~: $~ += $(self) stone;
-$~: $~ += time $(self) -j10;
+$~: $~ += time $(self) -j$(words $(hosts));
 $~:; $($@)
 
 ~ := $(tmp)/seq $(tmp)/par
